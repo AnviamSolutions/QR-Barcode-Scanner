@@ -1,0 +1,4 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">QR &amp; Barcode Scanner</string>
+    <string name="power_by" tools:ignore="ExtraTranslation"><u>ANVIAM Solutions Pvt. Ltd.</u></string>
+</resources>
