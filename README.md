@@ -1,6 +1,19 @@
 # QR-Barcode-Scanner
 QR &amp; Barcode Scanner library based on zxing &amp; full stable QR scanner code in android
 
+# Supported formats
+----------------------------------------------
+| 1D product | 1D industrial | 2D            |
+| ---------- | ------------- | --------------|
+| UPC-A      | Code 39       | QR Code       |
+| UPC-E      | Code 93       | Data Matrix   | 
+| EAN-8      | Code 128      | Aztec         |
+| EAN-13     | Codabar       | PDF 417       |
+|            | ITF           | MaxiCode      |
+|            | RSS-14        |               |
+|            | RSS-Expanded  |               |
+----------------------------------------------
+
 # Feature
 * Use Flash-Light
 * Use Camera Facing 
