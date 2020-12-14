@@ -57,3 +57,5 @@ dependencies
  ```
 # Found a bug?
 Submit a [github issue](https://github.com/AnviamSolutions/QR-Barcode-Scanner/issues/new)
+# Screenshots
+<img src="/Screenshot_20201214-201651[1].png"/>
