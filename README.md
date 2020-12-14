@@ -11,7 +11,7 @@ QR &amp; Barcode Scanner library based on zxing &amp; full stable QR scanner cod
 
 # How to use
 * Need to add in root gradle file as following :
-```java 
+```gradle 
 allprojects {
      repositories {
 	maven { url 'https://jitpack.io' }
@@ -19,12 +19,20 @@ allprojects {
    }
 ```
 * In your app module gradle file just need to add the dependency
-```java 
+```gradle 
 dependencies 
    {
      implementation 'com.github.AnviamSolutions:QR-Barcode-Scanner:1.0.1'
    }
 ```
+* Add camera permission to AndroidManifest.xml
+```xml
+<uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+```
+
 * Add frame layout into your activity xml
 ```java
 <FrameLayout
@@ -41,11 +49,27 @@ dependencies
 ```
 * In Your activity, Declare handle result
 ```java
- mScannerView.setResultHandler(rawResult -> {
+
+@Override
+    public void onResume() {
+        super.onResume();
+        if (mScannerView!=null)
+            mScannerView.setResultHandler(rawResult -> {
         if (rawResult!=null && !TextUtils.isEmpty(rawResult.getText())){
             //Todo method to get can content
         }        
        });
+        if (mScannerView!=null){
+            mScannerView.setCameraFacing(ToggleButtonCamera.isChecked());
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mScannerView!=null)
+            mScannerView.stopCamera();
+    }
  ```
 # Flip Camera (Back/Front)
 ```java
