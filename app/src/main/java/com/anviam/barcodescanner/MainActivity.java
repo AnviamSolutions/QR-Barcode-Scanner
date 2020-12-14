@@ -5,25 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.AppCompatToggleButton;
 import androidx.appcompat.widget.LinearLayoutCompat;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.Toast;
-
 import com.anviam.scanner.AnviamScannerView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
