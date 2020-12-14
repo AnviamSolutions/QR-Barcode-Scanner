@@ -3,6 +3,7 @@ package com.anviam.barcodescanner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.AppCompatToggleButton;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
@@ -13,13 +14,16 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.Toast;
+
 import com.anviam.scanner.AnviamScannerView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
@@ -31,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements AnviamScannerView
     BottomSheetBehavior searchQRBehaviour;
     AppCompatTextView TextsearchQRInfo;
     AppCompatTextView TxtComment,FlashSetting;
-    SwitchCompat textSwitchCompat;
+    AppCompatToggleButton ToggleButtonCamera,ToggleButtonFlash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,20 +56,23 @@ public class MainActivity extends AppCompatActivity implements AnviamScannerView
 
     private void InitializationView() {
         TxtComment = findViewById(R.id.TxtComment);
-        textSwitchCompat = findViewById(R.id.textSwitchCompat);
-        FlashSetting = findViewById(R.id.FlashSetting);
-        textSwitchCompat.setOnCheckedChangeListener((compoundButton, b) -> {
+        ToggleButtonCamera = findViewById(R.id.ToggleButtonCamera);
+        ToggleButtonFlash = findViewById(R.id.ToggleButtonFlash);
+        ToggleButtonFlash.setOnCheckedChangeListener((compoundButton, b) -> {
             if (mScannerView!=null){
-                mScannerView.setFlash(b);
-                if (b){
-                    FlashSetting.setText("Flash ON");
-                }else {
-                    FlashSetting.setText("Flash OFF");
-                }
+                mScannerView.setFlashLight(b);
             }
         });
+
+        ToggleButtonCamera.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (mScannerView!=null){
+                mScannerView.setCameraFacing(b);
+            }
+        });
+
         SearchQRBottomSheetInitialization();
     }
+
 
     private void onClickListener() {
         TxtComment.setOnClickListener(view -> {
@@ -84,14 +91,18 @@ public class MainActivity extends AppCompatActivity implements AnviamScannerView
     @Override
     public void onResume() {
         super.onResume();
-        mScannerView.setResultHandler(this);
-        mScannerView.startCamera();
+        if (mScannerView!=null)
+            mScannerView.setResultHandler(this);
+        if (mScannerView!=null){
+            mScannerView.setCameraFacing(ToggleButtonCamera.isChecked());
+        }
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        mScannerView.stopCamera();
+        if (mScannerView!=null)
+            mScannerView.stopCamera();
     }
 
     @Override

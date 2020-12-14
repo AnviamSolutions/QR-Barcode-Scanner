@@ -183,7 +183,6 @@ public class AnviamScannerView extends BarcodeScannerView {
         if (rect == null) {
             return null;
         }
-        // Go ahead and assume it's YUV rather than die.
         PlanarYUVLuminanceSource source = null;
 
         try {
@@ -194,4 +193,18 @@ public class AnviamScannerView extends BarcodeScannerView {
 
         return source;
     }
+
+    public void setCameraFacing(boolean b){
+        stopCamera();
+        if (b)
+            startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
+        else
+            startCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
+    }
+
+    public void setFlashLight(boolean b){
+        setFlash(b);
+    }
+
+
 }
