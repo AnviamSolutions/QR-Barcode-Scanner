@@ -87,12 +87,14 @@ dependencies
     }
  ```
 # Flip Camera (Back/Front)
+* By Default flip camera is false 
 ```java
-  mScannerView.setCameraFacing(b);
+  mScannerView.setCameraFacing(false);
  ```
 # Flash Light(On/Off)
+* By Default flash light is false 
 ```java
- mScannerView.setFlashLight(b);
+ mScannerView.setFlashLight(false);
  ```
 # Found a bug?
 Submit a [github issue](https://github.com/AnviamSolutions/QR-Barcode-Scanner/issues/new)
@@ -100,6 +102,6 @@ Submit a [github issue](https://github.com/AnviamSolutions/QR-Barcode-Scanner/is
 # Screenshots
 
  <p float="left">
-    <img src="/Screenshot_20201216-123020[2].png" width="320px" height="480px">
     <img src="/Screenshot_20201216-124927[1].png" width="320px" height="480px">
+    <img src="/Screenshot_20201216-123020[2].png" width="320px" height="480px">
 </p>
