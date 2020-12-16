@@ -1,5 +1,6 @@
 # QR-Barcode-Scanner
 QR &amp; Barcode Scanner library based on zxing &amp; full stable QR scanner code in android
+
 <img src="/screenshot/0.png" width="612px" height="250px">
 
 # Supported formats
