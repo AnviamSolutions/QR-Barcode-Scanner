@@ -98,4 +98,7 @@ dependencies
 Submit a [github issue](https://github.com/AnviamSolutions/QR-Barcode-Scanner/issues/new)
 
 # Screenshots
-<img src="/Screenshot_20201216-123020[2].png" width="320px" height="480px"/>
+ <tr>
+    <td><img src="/Screenshot_20201216-123020[2].png" width="320px" height="480px"></td>
+    <td><img src="/Screenshot_20201216-124927[1].png" width="320px" height="480px"></td>
+</tr>
