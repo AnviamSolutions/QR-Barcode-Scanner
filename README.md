@@ -1,3 +1,5 @@
+<img src="/banner.png" width="612px" height="250px">
+
 # QR-Barcode-Scanner
 QR &amp; Barcode Scanner library based on zxing &amp; full stable QR scanner code in android
 
@@ -94,5 +96,6 @@ dependencies
  ```
 # Found a bug?
 Submit a [github issue](https://github.com/AnviamSolutions/QR-Barcode-Scanner/issues/new)
+
 # Screenshots
-<img src="/Screenshot_20201214-201651[1].png"/>
+<img src="/Screenshot_20201216-123020[2].png" width="320px" height="480px"/>
