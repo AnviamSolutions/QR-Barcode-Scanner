@@ -1,4 +1,4 @@
-<img src="/banner.png" width="612px" height="250px">
+<img src="/screenshot/0.png" width="612px" height="250px">
 
 # QR-Barcode-Scanner
 QR &amp; Barcode Scanner library based on zxing &amp; full stable QR scanner code in android
@@ -102,6 +102,6 @@ Submit a [github issue](https://github.com/AnviamSolutions/QR-Barcode-Scanner/is
 # Screenshots
 
  <p float="left">
-    <img src="/Screenshot_20201216-124927[1].png" width="320px" height="480px">
-    <img src="/Screenshot_20201216-123020[2].png" width="320px" height="480px">
+    <img src="/screenshot/1.png" width="320px" height="480px">
+    <img src="/screenshot/2.png" width="320px" height="480px">
 </p>
