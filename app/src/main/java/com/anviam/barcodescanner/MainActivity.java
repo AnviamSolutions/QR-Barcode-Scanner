@@ -1,6 +1,7 @@
 package com.anviam.barcodescanner;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.AppCompatToggleButton;
@@ -10,19 +11,23 @@ import android.Manifest;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.anviam.scanner.AnviamScannerView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 
+@SuppressWarnings("Convert2Lambda")
 public class MainActivity extends AppCompatActivity implements AnviamScannerView.ResultHandler {
 
     private AnviamScannerView mScannerView;
@@ -119,6 +124,14 @@ public class MainActivity extends AppCompatActivity implements AnviamScannerView
         if (rawResult!=null && !TextUtils.isEmpty(rawResult.getText())){
             TextsearchQRInfo.setText(rawResult.getText());
             SearchQRBehaviorVisibility(true);
+        }else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(getString(R.string.error_message));
+            builder.setMessage(getString(R.string.no_record_found))
+                    .setCancelable(false)
+                    .setPositiveButton("OK", (dialog, id) -> mScannerView.resumeCameraPreview(MainActivity.this));
+            AlertDialog alert = builder.create();
+            alert.show();
         }
     }
 
@@ -126,12 +139,7 @@ public class MainActivity extends AppCompatActivity implements AnviamScannerView
         searchQRBottomSheet = findViewById(R.id.searchQRBottomSheet);
         searchQRBehaviour = BottomSheetBehavior.from(searchQRBottomSheet);
         TextsearchQRInfo = searchQRBottomSheet.findViewById(R.id.TextsearchQRInfo);
-        searchQRBottomSheet.findViewById(R.id.searchQRBackArrow).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SearchQRBehaviorVisibility(false);
-            }
-        });
+        searchQRBottomSheet.findViewById(R.id.searchQRBackArrow).setOnClickListener(v -> SearchQRBehaviorVisibility(false));
         searchQRBottomSheet.findViewById(R.id.BtnSearchQRInfo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
